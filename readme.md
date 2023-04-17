@@ -1,5 +1,1 @@
 # ZDRAVO
-
-# ADIJO
-
-# NOVI BRANCH
