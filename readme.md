@@ -2,5 +2,4 @@
 
 # ADIJO
 
-
-# še en novi aaaaa
+bootstrap tutorial
