@@ -1,6 +1,1 @@
-# ZDRAVO
-
-# ADIJO
-
-
-# še en novi aaaaa
+# Responsive web site (Loruki)
