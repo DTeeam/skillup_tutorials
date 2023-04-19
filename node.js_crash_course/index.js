@@ -64,7 +64,6 @@ const server = http.createServer((req, res) => {
       break;
   }
 
-  //testing .ignore
   //Read file
   fs.readFile(filePath, (err, content) => {
     if (err) {
