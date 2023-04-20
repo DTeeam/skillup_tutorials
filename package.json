@@ -1,0 +1,22 @@
+{
+  "name": "test_repo",
+  "version": "1.0.0",
+  "description": "Node.js Full Course for Beginners | Complete All-in-One Tutorial | 7 Hours by Dave Gray",
+  "main": "index.js",
+  "scripts": {
+    "start": "index",
+    "dev": "nodemon index"
+  },
+  "keywords": [],
+  "author": "Tim Detečnik",
+  "license": "ISC",
+  "dependencies": {
+    "date-fns": "^2.29.3",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "i": "^0.3.7",
+    "nodemon": "^2.0.22",
+    "npm": "^9.6.5"
+  }
+}
