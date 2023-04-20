@@ -1,0 +1,2 @@
+20230420	15:52:55	27c9b389-9468-48e4-b18a-a3fbb3cf2af2	TypeError: error is not a constructor
+20230420	15:54:22	0e3e2c17-c296-45cc-ba04-a6ff9c7c0268	Error: Not allowed by CORS
