@@ -1,2 +1,5 @@
 20230420	15:52:55	27c9b389-9468-48e4-b18a-a3fbb3cf2af2	TypeError: error is not a constructor
 20230420	15:54:22	0e3e2c17-c296-45cc-ba04-a6ff9c7c0268	Error: Not allowed by CORS
+20230421	15:05:25	15843bb1-a2d6-4a47-9a39-907aa99295f9	Error: "expires" is not allowed in "options"
+20230421	15:06:03	668bee4c-5124-458c-8e7b-c66f1aa95d29	Error: "expires" is not allowed in "options"
+20230421	15:16:50	0cb92075-bd4e-4058-b43b-19a466b5073c	Error: "expires" is not allowed in "options"

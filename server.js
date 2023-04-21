@@ -2,62 +2,41 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const cors = require('cors');
+const corsOptions = require('./config/corsOptions');
 const { logger } = require('./middleware/logEvents');
 const errorHandler = require('./middleware/errorHandler');
 const { error } = require('console');
+const verifyJWT = require('./middleware/verifyJWT');
+const cookieParser = require('cookie-parser');
 const PORT = process.env.PORT || 3500;
 
 //Custom middleware logger
 app.use(logger);
 
 //Cross origin resource sharing
-const whitelist = [
-  'https://www.google.com',
-  'http://127.0.0.1:5500',
-  'http://localhost:3500',
-];
-
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (whitelist.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  optionsSuccessStatus: 200,
-};
-
 app.use(cors(corsOptions));
 
+//built in middleware to handle urlencoded data
 app.use(express.urlencoded({ extended: false }));
+
+//built in json middleware
 app.use(express.json());
+
+//middleware for cookies
+app.use(cookieParser());
+
+//serve static files
 app.use(express.static(path.join(__dirname, '/public')));
 
-app.get('^/$|/index(.html)?', (req, res) => {
-  //res.sendFile('./views/index.html', { root: __dirname });
-  res.sendFile(path.join(__dirname, 'views', 'index.html'));
-});
+//routes
+app.use('/', require('./routes/root'));
+app.use('/register', require('./routes/register'));
+app.use('/auth', require('./routes/auth'));
+app.use('/refresh', require('./routes/refresh'));
+app.use('/logout', require('./routes/logout'));
 
-app.get('/new-page(.html)?', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'new-page.html'));
-});
-
-app.get('/old-page(.html)?', (req, res) => {
-  res.redirect(301, '/new-page.html'); //default: 302
-});
-
-//Route handlers
-app.get(
-  '/hello(.html)?',
-  (req, res, next) => {
-    console.log('Attempted to load hello.html');
-    next();
-  },
-  (req, res) => {
-    res.send('Hello World!');
-  }
-);
+app.use(verifyJWT);
+app.use('/employees', require('./routes/api/employees'));
 
 app.all('*', (req, res) => {
   res.status(404);

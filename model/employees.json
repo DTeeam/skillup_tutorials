@@ -1,9 +1,11 @@
 [
     {
+        "id": 1,
         "firstname": "Testeron",
         "lastname": "Makaron"
     },
     {
+        "id": 2,
         "firstname": "Marcelino",
         "lastname": "KruhInVino"
     }
