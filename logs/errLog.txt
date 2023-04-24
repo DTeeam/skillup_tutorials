@@ -3,3 +3,5 @@
 20230421	15:05:25	15843bb1-a2d6-4a47-9a39-907aa99295f9	Error: "expires" is not allowed in "options"
 20230421	15:06:03	668bee4c-5124-458c-8e7b-c66f1aa95d29	Error: "expires" is not allowed in "options"
 20230421	15:16:50	0cb92075-bd4e-4058-b43b-19a466b5073c	Error: "expires" is not allowed in "options"
+20230424	10:15:46	c59606bd-63b1-45aa-bc60-2e7b6ba49377	TypeError: authHeader?.startWith is not a function
+20230424	10:20:42	80253ad2-e7da-4c6e-bdac-5742aea9123d	ReferenceError: re is not defined
