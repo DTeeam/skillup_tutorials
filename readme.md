@@ -1,3 +1,1 @@
-# ZDRAVO
-
-# ADIJO
+Moj SkllUp repositorij za tutoriale
