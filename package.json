@@ -1,30 +1,5 @@
 {
-  "name": "test_repo",
-  "version": "1.0.0",
-  "description": "Node.js Full Course for Beginners | Complete All-in-One Tutorial | 7 Hours by Dave Gray",
-  "main": "server.js",
-  "scripts": {
-    "start": "server",
-    "dev": "nodemon server"
-  },
-  "keywords": [],
-  "author": "Tim Detečnik",
-  "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.1.0",
-    "cookie-parser": "^1.4.6",
-    "cors": "^2.8.5",
-    "crs": "^0.0.01",
-    "date-fns": "^2.29.3",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
-    "jsonwebtoken": "^9.0.0",
-    "mongoose": "^7.0.4",
-    "uuid": "^9.0.0"
-  },
-  "devDependencies": {
-    "i": "^0.3.7",
-    "nodemon": "^2.0.22",
-    "npm": "^9.6.5"
+    "react-icons": "^4.8.0"
   }
 }
