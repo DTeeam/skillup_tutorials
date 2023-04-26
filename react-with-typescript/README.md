@@ -1,1 +1,1 @@
-Todo List in ReactJS using TypeScript Tutorial by PedroTech
+React with TypeScript Crash Course by Laith Academy
