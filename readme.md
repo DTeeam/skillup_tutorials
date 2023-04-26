@@ -1,5 +1,1 @@
-# ZDRAVO
-
-# ADIJO
-
-bootstrap tutorial
+Bootstrap tutorial
