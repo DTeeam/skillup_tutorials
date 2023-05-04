@@ -13,15 +13,11 @@ export class UpdateUserDto {
   email?: string
 
   @IsOptional()
-  refresh_token?: string
-
-  @IsOptional()
   role_id?: string
 
   @IsOptional()
   avatar?: string
 
-  //role_id: string
   @ValidateIf((o) => typeof o.password === 'string' && o.password.length > 0)
   @IsOptional()
   @Matches(/^(?=.*\d)[A-Za-z.\s_-]+[\w~@#$%^&*+=`|{}:;!.?"()[\]-]{6,}/, {
