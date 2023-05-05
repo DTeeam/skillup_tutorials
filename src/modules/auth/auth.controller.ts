@@ -9,6 +9,7 @@ import {
   Req,
   Res,
   Get,
+  UseGuards,
 } from '@nestjs/common'
 import { AuthService } from './auth.service'
 import { Request, Response } from 'express'
@@ -16,6 +17,7 @@ import { Public } from 'decorators/public.decorator'
 import { User } from 'entities/user.entity'
 import { RegisterUserDto } from './dto/register-user.dto'
 import { RequestWithUser } from 'interfaces/auth.interface'
+import { LocalAuthGuard } from './guard/local-auth.guard'
 
 @Controller('auth')
 @UseInterceptors(ClassSerializerInterceptor)
@@ -30,6 +32,7 @@ export class AuthController {
   }
 
   @Public()
+  @UseGuards(LocalAuthGuard)
   @Post('login')
   @HttpCode(HttpStatus.OK)
   async login(@Req() req: RequestWithUser, @Res({ passthrough: true }) res: Response): Promise<User> {
@@ -51,3 +54,5 @@ export class AuthController {
     res.clearCookie('access_token')
   }
 }
+
+//tutorial 5: 37:30
