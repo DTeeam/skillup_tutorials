@@ -15,10 +15,10 @@ export class AuthService {
     Logging.info('Validating user...')
     const { user } = await this.usersService.findBy({ email: email }, ['role'])
     if (!user) {
-      throw new BadRequestException('Invaliid credentals')
+      throw new BadRequestException('Invalid credentals')
     }
     if (!(await compareHash(password, user.password))) {
-      throw new BadRequestException('Invaliid credentals')
+      throw new BadRequestException('Invalid credentals')
     }
     Logging.info('User is valid')
     return user

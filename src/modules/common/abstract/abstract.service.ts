@@ -47,6 +47,7 @@ export abstract class AbstractService {
   async remove(id: string): Promise<any> {
     const element = await this.findById(id)
     try {
+      return this.repository.remove(element)
     } catch (error) {
       Logging.error(error)
       throw new InternalServerErrorException("Element wasn't deleted successfully")

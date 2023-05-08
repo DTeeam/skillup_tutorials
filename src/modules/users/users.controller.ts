@@ -33,7 +33,6 @@ export class UsersController {
   @HasPermission('users')
   @HttpCode(HttpStatus.OK)
   async findAll(@Query('page') page: number): Promise<PaginatedResult> {
-    console.log('Find All method called')
     return this.usersService.paginate(page, ['role'])
   }
 

@@ -3,7 +3,6 @@ import { Reflector } from '@nestjs/core'
 import { AuthGuard } from '@nestjs/passport'
 import { Observable } from 'rxjs'
 import { JwtService } from '@nestjs/jwt'
-import { User } from 'entities/user.entity'
 
 @Injectable()
 export class JwtAuthGuard extends AuthGuard('jwt') {
