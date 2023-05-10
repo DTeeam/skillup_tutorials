@@ -1,8 +1,8 @@
 import { ConfigService } from '@nestjs/config'
-import { TypeOrmModule } from '@nestjs/typeorm'
+import { TypeOrmModuleOptions } from '@nestjs/typeorm'
 import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostGresConnectionOptions'
 
-type ConfigType = TypeOrmModule & PostgresConnectionOptions
+type ConfigType = TypeOrmModuleOptions & PostgresConnectionOptions
 type ConnectionOptions = ConfigType
 
 export const ORMConfig = async (configService: ConfigService): Promise<ConnectionOptions> => ({
@@ -12,8 +12,9 @@ export const ORMConfig = async (configService: ConfigService): Promise<Connectio
   username: configService.get('DATABASE_USERNAME'),
   password: configService.get('DATABASE_PWD'),
   database: configService.get('DATABASE_NAME'),
-  entities: configService.get['dist/**/*.entity.ts'],
-  synchronize: true, //ONLY in production,
+  entities: configService.get['dist/**/*.entity{.ts,.js}'],
+  autoLoadEntities: true,
+  synchronize: true, //ONLY in development,
   ssl: true,
   extra: {
     ssl: {

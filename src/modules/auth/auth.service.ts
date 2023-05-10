@@ -13,7 +13,7 @@ export class AuthService {
 
   async validateUser(email: string, password: string): Promise<User> {
     Logging.info('Validating user...')
-    const { user } = await this.usersService.findBy({ email: email }, ['role'])
+    const user = await this.usersService.findBy({ email: email }, ['role'])
     if (!user) {
       throw new BadRequestException('Invalid credentals')
     }
@@ -26,6 +26,7 @@ export class AuthService {
 
   async register(registerUserDto: RegisterUserDto): Promise<User> {
     const hashedPassword = await hash(registerUserDto.password)
+
     return this.usersService.create({
       role_id: null,
       ...registerUserDto,
@@ -34,6 +35,8 @@ export class AuthService {
   }
 
   async generateJwt(user: User): Promise<string> {
+    console.log(user)
+
     return this.jwtService.signAsync({ sub: user.id, name: user.email })
   }
 
@@ -44,6 +47,9 @@ export class AuthService {
   }
 
   async getUserId(request: Request): Promise<string> {
+    if (!request.user) {
+      throw new BadRequestException('User not authenticated')
+    }
     const user = request.user as User
     return user.id
   }

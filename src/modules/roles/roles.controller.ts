@@ -16,6 +16,7 @@ import { PaginatedResult } from 'interfaces/paginated-result.interface'
 import { RolesService } from './roles.service'
 import { Role } from 'entities/role.entity'
 import { CreateUpdateRoleDto } from './dto/create-update-role.dto'
+import { ApiBearerAuth } from '@nestjs/swagger'
 
 @Controller('roles')
 export class RolesController {
@@ -41,6 +42,7 @@ export class RolesController {
 
   @Post()
   @HttpCode(HttpStatus.CREATED)
+  @ApiBearerAuth()
   async create(
     @Body() createRoleDto: CreateUpdateRoleDto,
     @Body('permissions') permissionsIds: string[],
@@ -53,7 +55,7 @@ export class RolesController {
     )
   }
 
-  @Patch()
+  @Patch(':id')
   @HttpCode(HttpStatus.OK)
   async update(
     @Param('id') id: string,

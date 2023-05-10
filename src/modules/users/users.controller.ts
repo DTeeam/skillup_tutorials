@@ -23,6 +23,7 @@ import { FileInterceptor } from '@nestjs/platform-express'
 import { isFileExtensionSafe, removeFile, saveImageToStorage } from 'helpers/imageStorage'
 import { join } from 'path'
 import { HasPermission } from 'decorators/has-permission.decorator'
+import { ApiBearerAuth } from '@nestjs/swagger'
 
 @Controller('users')
 @UseInterceptors(ClassSerializerInterceptor)
@@ -32,6 +33,7 @@ export class UsersController {
   @Get()
   @HasPermission('users')
   @HttpCode(HttpStatus.OK)
+  @ApiBearerAuth()
   async findAll(@Query('page') page: number): Promise<PaginatedResult> {
     return this.usersService.paginate(page, ['role'])
   }

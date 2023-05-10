@@ -18,6 +18,7 @@ import { User } from 'entities/user.entity'
 import { RegisterUserDto } from './dto/register-user.dto'
 import { RequestWithUser } from 'interfaces/auth.interface'
 import { LocalAuthGuard } from './guard/local-auth.guard'
+import { LoginUserDto } from './dto/login-user.dto'
 
 @Controller('auth')
 @UseInterceptors(ClassSerializerInterceptor)
