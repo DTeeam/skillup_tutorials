@@ -9,6 +9,8 @@ import { RolesModule } from './roles/roles.module'
 import { PermissionsModule } from './permissions/permissions.module'
 import { APP_GUARD } from '@nestjs/core'
 import { PermissionsGuard } from './permissions/guards/permission.guard'
+import { JwtAuthGuard } from './auth/guard/jwt.guard'
+import { ProductsModule } from './products/products.module'
 
 @Module({
   imports: [
@@ -22,13 +24,14 @@ import { PermissionsGuard } from './permissions/guards/permission.guard'
     AuthModule,
     RolesModule,
     PermissionsModule,
+    ProductsModule,
   ],
   controllers: [],
   providers: [
     /*{
       provide: APP_GUARD,
       useClass: JwtAuthGuard,
-    },tutorial 5: to je mel napisano, mislim da je iz deprecated tutoriala*/
+    }, //tutorial 5: to je mel napisano, mislim da je iz deprecated tutoriala*/
     {
       provide: APP_GUARD,
       useClass: PermissionsGuard,

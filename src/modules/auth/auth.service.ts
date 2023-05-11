@@ -50,7 +50,9 @@ export class AuthService {
     if (!request.user) {
       throw new BadRequestException('User not authenticated')
     }
+
     const user = request.user as User
+    console.log(user.id)
     return user.id
   }
 }
