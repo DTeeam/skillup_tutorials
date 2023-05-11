@@ -4,20 +4,20 @@ import { Match } from 'decorators/match.decorator'
 
 export class CreateUserDto {
   @IsOptional()
-  @ApiProperty()
+  @ApiProperty({ required: false })
   first_name?: string
 
   @IsOptional()
-  @ApiProperty()
+  @ApiProperty({ required: false })
   last_name?: string
 
   @IsNotEmpty()
   @IsEmail()
-  @ApiProperty()
+  @ApiProperty({ required: true })
   email: string
 
   @IsNotEmpty()
-  @ApiProperty()
+  @ApiProperty({ required: false })
   role_id: string
 
   @IsNotEmpty()
@@ -25,11 +25,11 @@ export class CreateUserDto {
     message:
       'Password must have at least one number, lower or upper case letter and it has to be longer than 5 characters',
   })
-  @ApiProperty()
+  @ApiProperty({ required: true })
   password: string
 
   @IsNotEmpty()
   @Match(CreateUserDto, (field) => field.password, { message: 'Passwords do not match' })
-  @ApiProperty()
+  @ApiProperty({ required: true })
   confirm_password: string
 }

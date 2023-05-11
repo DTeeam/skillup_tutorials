@@ -23,8 +23,9 @@ import { FileInterceptor } from '@nestjs/platform-express'
 import { isFileExtensionSafe, removeFile, saveImageToStorage } from 'helpers/imageStorage'
 import { join } from 'path'
 import { HasPermission } from 'decorators/has-permission.decorator'
-import { ApiBearerAuth } from '@nestjs/swagger'
+import { ApiBadRequestResponse, ApiBearerAuth, ApiCreatedResponse, ApiTags } from '@nestjs/swagger'
 
+@ApiTags('users')
 @Controller('users')
 @UseInterceptors(ClassSerializerInterceptor)
 export class UsersController {
@@ -33,7 +34,8 @@ export class UsersController {
   @Get()
   //@HasPermission('users')
   @HttpCode(HttpStatus.OK)
-  @ApiBearerAuth()
+  @ApiCreatedResponse({ description: 'List all users' })
+  @ApiBadRequestResponse({ description: 'Error for list of all users' })
   async findAll(@Query('page') page: number): Promise<PaginatedResult> {
     return this.usersService.paginate(page, ['role'])
   }
@@ -53,6 +55,8 @@ export class UsersController {
   @Post('upload/:id')
   @UseInterceptors(FileInterceptor('avatar', saveImageToStorage))
   @HttpCode(HttpStatus.CREATED)
+  @ApiCreatedResponse({ description: 'Creates new user' })
+  @ApiBadRequestResponse({ description: 'Error when creating a new user' })
   async upload(@UploadedFile() file: Express.Multer.File, @Param('id') id: string): Promise<User> {
     const filename = file?.filename
 

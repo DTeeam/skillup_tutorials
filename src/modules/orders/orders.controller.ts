@@ -12,7 +12,9 @@ import {
 import { OrdersService } from './orders.service'
 import { PaginatedResult } from 'interfaces/paginated-result.interface'
 import { Response } from 'express'
+import { ApiTags } from '@nestjs/swagger'
 
+@ApiTags('orders')
 @Controller('orders')
 @UseInterceptors(ClassSerializerInterceptor)
 export class OrdersController {

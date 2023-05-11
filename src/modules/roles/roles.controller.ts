@@ -4,8 +4,9 @@ import { PaginatedResult } from 'interfaces/paginated-result.interface'
 import { RolesService } from './roles.service'
 import { Role } from 'entities/role.entity'
 import { CreateUpdateRoleDto } from './dto/create-update-role.dto'
-import { ApiBearerAuth } from '@nestjs/swagger'
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger'
 
+@ApiTags('roles')
 @Controller('roles')
 export class RolesController {
   constructor(private rolesService: RolesService) {}

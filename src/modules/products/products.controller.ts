@@ -20,7 +20,9 @@ import { CreateUpdateProductDto } from './dto/create-update-product.dto'
 import { FileInterceptor } from '@nestjs/platform-express'
 import { isFileExtensionSafe, removeFile, saveImageToStorage } from 'helpers/imageStorage'
 import { join } from 'path'
+import { ApiTags } from '@nestjs/swagger'
 
+@ApiTags('products')
 @Controller('products')
 export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
