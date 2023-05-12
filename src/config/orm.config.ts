@@ -1,6 +1,6 @@
 import { ConfigService } from '@nestjs/config'
 import { TypeOrmModuleOptions } from '@nestjs/typeorm'
-import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostGresConnectionOptions'
+import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions'
 
 type ConfigType = TypeOrmModuleOptions & PostgresConnectionOptions
 type ConnectionOptions = ConfigType
