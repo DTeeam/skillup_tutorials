@@ -11,6 +11,7 @@ import authStore from 'stores/auth.store'
 import * as API from 'api/Api'
 import { StatusCode } from 'constants/errorConstants'
 import { routes } from 'constants/routesConstants'
+import { observer } from 'mobx-react'
 
 const LoginForm: FC = () => {
   const navigate = useNavigate()
@@ -107,4 +108,4 @@ const LoginForm: FC = () => {
   )
 }
 
-export default LoginForm
+export default observer(LoginForm)

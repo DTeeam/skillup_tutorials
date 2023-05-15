@@ -1,11 +1,11 @@
 import Button from 'react-bootstrap/Button'
 import ToastContainer from 'react-bootstrap/ToastContainer'
+import Toast from 'react-bootstrap/Toast'
 import { routes } from 'constants/routesConstants'
 import { FC, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import authStore from 'stores/auth.store'
-import Toast from 'react-bootstrap/Toast'
 import { StatusCode } from 'constants/errorConstants'
 import * as API from 'api/Api'
 
@@ -13,6 +13,7 @@ const Navbar: FC = () => {
   const navigate = useNavigate()
   const [apiError, setApiError] = useState('')
   const [showError, setShowError] = useState(false)
+
   const signout = async () => {
     const response = await API.signout()
     if (response.data?.statusCode === StatusCode.BAD_REQUEST) {

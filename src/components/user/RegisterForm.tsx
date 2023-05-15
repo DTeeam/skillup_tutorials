@@ -15,6 +15,7 @@ import * as API from 'api/Api'
 import { StatusCode } from 'constants/errorConstants'
 import authStore from 'stores/auth.store'
 import Avatar from 'react-avatar'
+import { observer } from 'mobx-react'
 
 const RegisterForm: FC = () => {
   const navigate = useNavigate()
@@ -272,4 +273,4 @@ const RegisterForm: FC = () => {
   )
 }
 
-export default RegisterForm
+export default observer(RegisterForm)
