@@ -4,10 +4,10 @@ import Logging from 'library/Logging'
 import { diskStorage, Options } from 'multer'
 import { extname } from 'path'
 
-type validFileExtensionType = 'png' | 'jpg' | 'jpeg'
+type validFileExtensionsType = 'png' | 'jpg' | 'jpeg'
 type validMimeType = 'image/png' | 'image/jpg' | 'image/jpeg'
 
-const validFileExtensions: validFileExtensionType[] = ['png', 'jpg', 'jpeg']
+const validFileExtensions: validFileExtensionsType[] = ['png', 'jpg', 'jpeg']
 const validMimeTypes: validMimeType[] = ['image/png', 'image/jpg', 'image/jpeg']
 
 export const saveImageToStorage: Options = {
@@ -34,7 +34,7 @@ export const isFileExtensionSafe = async (fullFilePath: string): Promise<boolean
   return (await FileType).fileTypeFromFile(fullFilePath).then((fileExtensionAndMimeType) => {
     if (!fileExtensionAndMimeType?.ext) return false
 
-    const isFileTypeLegit = validFileExtensions.includes(fileExtensionAndMimeType.ext as validFileExtensionType)
+    const isFileTypeLegit = validFileExtensions.includes(fileExtensionAndMimeType.ext as validFileExtensionsType)
     const isMimeTypeLegit = validMimeTypes.includes(fileExtensionAndMimeType.mime as validMimeType)
     const isFileLegit = isFileTypeLegit && isMimeTypeLegit
     return isFileLegit

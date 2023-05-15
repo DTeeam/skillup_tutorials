@@ -37,7 +37,7 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe())
   app.use(cookieParser())
   //File display
-  app.use('/files', express.static)
+  app.use('/files', express.static('files'))
 
   initSwagger(app)
 
