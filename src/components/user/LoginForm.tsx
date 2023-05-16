@@ -85,9 +85,9 @@ const LoginForm: FC = () => {
           )}
         />
         <div className="d-flex justify-content-between align-items-center mb-2">
-          <p className="mb-0">Don{"'"}t have an account yet?</p>
+          <p className="mb-0">Wheres your account?</p>
           <Link className="text-decoration-none text-end" to={routes.SIGNUP}>
-            Create account
+            Create one now!
           </Link>
         </div>
         <Button className="w-100" type="submit">

@@ -42,7 +42,7 @@ const DashboardRoles: FC = () => {
       }
     },
     onError: () => {
-      setApiError('Something went wrong while deleting a product')
+      setApiError('Something went wrong while deleting a role')
       setShowError(true)
     },
   })
@@ -54,7 +54,7 @@ const DashboardRoles: FC = () => {
   return (
     <DashboardLayout>
       <div className="mb-4">
-        <h1 className="mb-4"></h1>
+        <h1 className="mb-4">Roles</h1>
         <Link
           className="btn btn-dark"
           to={`${routes.DASHBOARD_PREFIX}/roles/add`}
@@ -73,7 +73,7 @@ const DashboardRoles: FC = () => {
               <Table striped bordered hover responsive>
                 <thead>
                   <tr>
-                    <th>name</th>
+                    <th>Name</th>
                     <th>Actions</th>
                   </tr>
                 </thead>

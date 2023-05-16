@@ -9,6 +9,7 @@ import ToastContainer from 'react-bootstrap/ToastContainer'
 import Toast from 'react-bootstrap/Toast'
 import useMediaQuery from 'hooks/useMediaQuery'
 import Avatar from 'react-avatar'
+import { observer } from 'mobx-react'
 
 const Topbar: FC = () => {
   const { isMobile } = useMediaQuery(768)
@@ -120,4 +121,4 @@ const Topbar: FC = () => {
   )
 }
 
-export default Topbar
+export default observer(Topbar)
